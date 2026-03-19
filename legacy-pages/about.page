@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About Us — Sugar Down | Lucky Heart Ayurveda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
+  <ul class="nm"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="about.html" class="act">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <a href="products.html" class="nc">Shop Now</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">About Lucky Heart Ayurveda</div>
+  <h1 class="hero-title">We Exist For One Reason —<br><em>To Help You Control Your Sugar.</em></h1>
+  <p class="hero-sub">We are not a general health brand. We focus only on diabetes — so everything we do, every herb we choose, every follow-up we make, is designed for exactly one purpose.</p>
+</div>
+
+<!-- MISSION -->
+<section class="sec">
+  <div class="mw">
+    <div class="mission">
+      <div class="mission-vis">
+        <div class="mission-big">1</div>
+        <div class="mission-label">Focus. One condition. Full commitment.</div>
+        <div class="mission-vals">
+          <div class="mv-item"><div class="mv-icon">🌿</div><div class="mv-text">100% Ayurvedic — no synthetic chemicals</div></div>
+          <div class="mv-item"><div class="mv-icon">🔬</div><div class="mv-text">Herbs proven for centuries in traditional medicine</div></div>
+          <div class="mv-item"><div class="mv-icon">👥</div><div class="mv-text">Real team, real support, real follow-ups</div></div>
+          <div class="mv-item"><div class="mv-icon">🎯</div><div class="mv-text">Only diabetes care — not a generic wellness brand</div></div>
+        </div>
+      </div>
+      <div class="mission-text">
+        <h2>Our <span>Mission</span> is Simple</h2>
+        <p>Diabetes doesn't have to be a life sentence of escalating doses and worsening complications. Ayurveda has known this for thousands of years — the right herbs, the right routine, and genuine support can help the body heal itself.</p>
+        <p>We started Lucky Heart Ayurveda because we saw too many people managing their sugar with pills that never got to the root cause. We believe nature's most powerful diabetes-fighting herbs, combined with real human support, can make a genuine difference.</p>
+        <p>Every product we make, every follow-up call we do, every diet plan our dietitian creates — it all comes back to one simple question: <strong>Is this helping our customer control their sugar?</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="sec story-sec">
+  <div class="mw">
+    <div class="story-grid">
+      <div>
+        <div class="story-tag">Our Story</div>
+        <h2 class="story-title">Born From a Family's Struggle With Diabetes</h2>
+        <p class="story-body">Our founder watched his father struggle with Type 2 diabetes for over a decade. Every year, the dose went up. Every year, new complications appeared. The medicines controlled the sugar but they never addressed why it was high in the first place.</p>
+        <p class="story-body">After years of research into Ayurveda — consulting traditional physicians, reading ancient texts, and speaking to hundreds of diabetic patients — a pattern emerged. Herbs like Gurmar, Karela, Jamun and Giloy had been used for centuries with remarkable results. But no one was presenting them in a modern, convenient, complete system.</p>
+        <div class="story-quote"><p>"We don't just want to manage your sugar. We want to give your body the tools to manage it itself."</p><cite>— Founder, Lucky Heart Ayurveda</cite></div>
+        <p class="story-body">Sugar Down was born from this belief — a complete day-night kit that works with your body's natural rhythms, supported by a team that genuinely cares about your results.</p>
+      </div>
+      <div class="story-vis">
+        <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Carefully selected Ayurvedic herbs in our formulations</div></div>
+        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Products designed to cover morning, afternoon and night</div></div>
+        <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">WhatsApp support — real people, real answers</div></div>
+        <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Focus on diabetes — nothing else</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec">
+  <div class="mw">
+    <div style="text-align:center;margin-bottom:8px;"><span style="font-size:10px;font-weight:700;color:var(--gm);letter-spacing:3px;text-transform:uppercase;">The People Behind Sugar Down</span></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-align:center;margin-bottom:8px;">Our Team</h2>
+    <p style="font-size:14px;color:var(--gray);text-align:center;">Replace with real team photos and bios</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-av" style="background:#1B4D2E;">F</div><div class="team-name">[Founder Name]</div><div class="team-role">Founder & Director</div><div class="team-bio">Replace with founder's real bio. Share your personal connection to diabetes care and what motivated you to start Sugar Down.</div></div>
+      <div class="team-card"><div class="team-av" style="background:#1A3A5C;">D</div><div class="team-name">[Dietitian Name]</div><div class="team-role">Certified Dietitian</div><div class="team-bio">Our in-house dietitian creates personalised meal plans for every customer. Certified in clinical nutrition with specialisation in diabetes management.</div></div>
+      <div class="team-card"><div class="team-av" style="background:#5C3D1A;">C</div><div class="team-name">[Support Lead Name]</div><div class="team-role">Customer Care Lead</div><div class="team-bio">Manages our 24×7 WhatsApp support and daily follow-up calls. Every customer gets personal attention throughout their journey.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec" style="background:var(--cream-d);padding-top:0;">
+  <div class="mw">
+    <div style="text-align:center;padding-top:80px;margin-bottom:48px;">
+      <span style="font-size:10px;font-weight:700;color:var(--gm);letter-spacing:3px;text-transform:uppercase;">What We Believe In</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;margin-top:12px;">Our Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card"><div class="val-icon">🌿</div><div class="val-title">Pure & Natural</div><div class="val-desc">Every ingredient is natural, every formulation is free from synthetic chemicals or harmful additives.</div></div>
+      <div class="val-card"><div class="val-icon">💯</div><div class="val-title">Complete Honesty</div><div class="val-desc">We tell you exactly what's in our products, what to expect, and how long it takes. No exaggerated claims.</div></div>
+      <div class="val-card"><div class="val-icon">🤝</div><div class="val-title">Genuine Support</div><div class="val-desc">We follow up every single day because your results are our results. We don't disappear after you order.</div></div>
+      <div class="val-card"><div class="val-icon">🎯</div><div class="val-title">One Focus</div><div class="val-desc">We only work on diabetes care. This laser focus means everything we do is designed specifically for diabetic people.</div></div>
+    </div>
+
+    <div class="cta-strip">
+      <div><h3>Ready to Take Control of Your Sugar?</h3><p>Start your journey today. Free shipping + free diet plan included.</p></div>
+      <a href="products.html">See Our Kits →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
+  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="track.html">Track Order</a></div>
+  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+</footer>
+</body></html>
+

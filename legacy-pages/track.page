@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Track Your Order — Sugar Down</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
+  <ul class="nm"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="track.html" class="act">Track Order</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <a href="products.html" class="nc">Shop Now</a>
+</nav>
+
+<div class="wrap">
+  <h1 class="pg-title">Track Your Order</h1>
+  <p class="pg-sub">Enter your Order ID to see real-time status of your Sugar Down order.</p>
+
+  <div class="search-box">
+    <h3>Enter Order ID</h3>
+    <div class="search-row">
+      <input class="search-input" id="track-input" placeholder="e.g. SD12345678" onkeydown="if(event.key==='Enter')trackOrder()" />
+      <button class="search-btn" onclick="trackOrder()">Track Order</button>
+    </div>
+    <div class="search-hint">Your Order ID was sent to you via WhatsApp after placing the order. It starts with "SD".</div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-box" id="result-box">
+    <div class="result-header">
+      <div class="rh-left"><h3 id="r-id">SD00000000</h3><p id="r-date">Ordered on —</p></div>
+      <span class="status-badge status-confirmed" id="r-status-badge">Confirmed</span>
+    </div>
+    <div class="result-body">
+      <div class="track-timeline" id="timeline"><!-- JS --></div>
+      <div class="order-info-grid">
+        <div class="oi-item"><div class="oi-label">Customer</div><div class="oi-val" id="r-name">—</div></div>
+        <div class="oi-item"><div class="oi-label">Mobile</div><div class="oi-val" id="r-phone">—</div></div>
+        <div class="oi-item"><div class="oi-label">Delivery Address</div><div class="oi-val" id="r-addr" style="font-size:12px;">—</div></div>
+        <div class="oi-item"><div class="oi-label">Order Total</div><div class="oi-val" id="r-total" style="color:var(--gd);">—</div></div>
+      </div>
+      <div class="help-strip">💬 Need help with your order? <a href="https://wa.me/91XXXXXXXXXX">WhatsApp us</a> with your Order ID.</div>
+    </div>
+  </div>
+
+  <!-- NOT FOUND -->
+  <div class="not-found" id="not-found">
+    <div class="not-found-icon">🔍</div>
+    <h3>Order Not Found</h3>
+    <p>We couldn't find an order with that ID. Please check the Order ID in your WhatsApp confirmation message and try again.</p>
+    <a href="contact.html">Contact Support</a>
+  </div>
+
+  <!-- RECENT ORDERS -->
+  <div class="recent-box" id="recent-box" style="margin-top:24px;display:none;">
+    <h4>Your Recent Orders</h4>
+    <div id="recent-list"><!-- JS --></div>
+  </div>
+</div>
+
+<footer>
+  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
+  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="contact.html">Contact</a></div>
+  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+</footer>
+
+<script>
+const STATUS_FLOW = {
+  confirmed: {label:'Order Confirmed', badge:'status-confirmed'},
+  packed:    {label:'Packed & Ready', badge:'status-packed'},
+  shipped:   {label:'Shipped', badge:'status-shipped'},
+  delivered: {label:'Delivered', badge:'status-delivered'}
+};
+
+const TIMELINE_STEPS = [
+  {key:'confirmed', icon:'✓', title:'Order Confirmed', desc:'Your order has been received and confirmed. Our team has been notified.'},
+  {key:'packed',   icon:'📦', title:'Order Packed', desc:'Your Sugar Down kit has been carefully packed and is ready for dispatch.'},
+  {key:'shipped',  icon:'🚚', title:'Shipped', desc:'Your order is on the way! Track via the courier link sent on WhatsApp.'},
+  {key:'delivered',icon:'🏠', title:'Delivered', desc:'Your order has been delivered. Enjoy your Sugar Down journey! 🌿'},
+];
+
+function getStatusIndex(status) {
+  const order = ['confirmed','packed','shipped','delivered'];
+  return order.indexOf(status);
+}
+
+function renderTimeline(status) {
+  const current = getStatusIndex(status);
+  let html = '';
+  TIMELINE_STEPS.forEach((s, i) => {
+    const state = i < current ? 'done' : (i === current ? 'active' : 'pending');
+    const time = i <= current ? (i===0?'Just now': i===1?'Within 24 hrs': i===2?'1-2 days': '3-5 days') : 'Pending';
+    html += `<div class="tl-step">
+      <div class="tl-dot ${state}">${state==='done'?'✓':s.icon}</div>
+      <div class="tl-title ${state==='pending'?'pending-text':''}">${s.title}</div>
+      <div class="tl-time">${time}</div>
+      ${state!=='pending'?`<div class="tl-desc">${s.desc}</div>`:''}
+    </div>`;
+  });
+  document.getElementById('timeline').innerHTML = html;
+}
+
+function trackOrder() {
+  const id = document.getElementById('track-input').value.trim().toUpperCase();
+  if (!id) { alert('Please enter your Order ID'); return; }
+
+  document.getElementById('result-box').style.display = 'none';
+  document.getElementById('not-found').style.display = 'none';
+
+  const order = JSON.parse(localStorage.getItem('sd_order_'+id) || 'null');
+
+  if (order) {
+    showOrder(order);
+  } else if (id.startsWith('SD') && id.length >= 8) {
+    // Demo order for any valid-looking ID
+    const demoOrder = {id, name:'Customer', phone:'—', address:'India', payMethod:'cod', total:'1755', date: new Date().toLocaleDateString('en-IN'), status:'shipped'};
+    showOrder(demoOrder);
+  } else {
+    document.getElementById('not-found').style.display = 'block';
+  }
+}
+
+function showOrder(order) {
+  const box = document.getElementById('result-box');
+  box.style.display = 'block';
+  document.getElementById('r-id').textContent = order.id;
+  document.getElementById('r-date').textContent = 'Ordered on ' + (order.date||'—');
+  document.getElementById('r-name').textContent = order.name||'—';
+  document.getElementById('r-phone').textContent = order.phone||'—';
+  document.getElementById('r-addr').textContent = order.address||'—';
+  document.getElementById('r-total').textContent = '₹'+(parseInt(order.total)||0).toLocaleString();
+
+  const status = order.status || 'confirmed';
+  const sf = STATUS_FLOW[status] || STATUS_FLOW.confirmed;
+  const badge = document.getElementById('r-status-badge');
+  badge.textContent = sf.label;
+  badge.className = 'status-badge ' + sf.badge;
+  renderTimeline(status);
+}
+
+// Show recent orders
+window.addEventListener('DOMContentLoaded', () => {
+  const lastOrder = JSON.parse(localStorage.getItem('sd_last_order')||'null');
+  if (lastOrder) {
+    document.getElementById('recent-box').style.display = 'block';
+    document.getElementById('recent-list').innerHTML = `<div class="recent-item" onclick="document.getElementById('track-input').value='${lastOrder.id}';trackOrder()"><span class="recent-id">${lastOrder.id}</span><span class="recent-date">${lastOrder.date||''}</span><span class="recent-arrow">→</span></div>`;
+  }
+});
+</script>
+</body></html>
+

@@ -1,0 +1,64 @@
+<!-- CONFIRMATION PAGE -->
+<!DOCTYPE html>
+<html lang="en" id="page-confirmation">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Order Confirmed — Sugar Down</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
+  <ul class="nm"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="track.html">Track Order</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="conf-icon">✓</div>
+  <h1 class="conf-title">Order Confirmed!</h1>
+  <p class="conf-sub">Thank you for choosing Sugar Down. Your order has been placed successfully. Our team will contact you on WhatsApp within 30 minutes to confirm.</p>
+
+  <div class="wa-banner">
+    <div class="wa-banner-icon">💬</div>
+    <div class="wa-banner-text"><h4>We'll reach you on WhatsApp</h4><p>Our team will send you order confirmation, tracking link and your free diet plan within 30 minutes.</p></div>
+    <a href="https://wa.me/91XXXXXXXXXX" class="wa-btn">Open WhatsApp</a>
+  </div>
+
+  <div class="order-box" id="order-details">
+    <div class="order-id">Your Order ID</div>
+    <div class="order-id-val" id="oid">SD00000000</div>
+    <div class="order-detail-row"><span>Customer Name</span><span id="oname">—</span></div>
+    <div class="order-detail-row"><span>Mobile</span><span id="ophone">—</span></div>
+    <div class="order-detail-row"><span>Delivery Address</span><span id="oaddr">—</span></div>
+    <div class="order-detail-row"><span>Payment Method</span><span id="opay">—</span></div>
+    <div class="order-detail-row"><span>Order Total</span><span id="ototl" style="color:var(--gd);font-size:16px;">₹0</span></div>
+    <div class="order-detail-row"><span>Order Date</span><span id="odate">—</span></div>
+    <div class="order-detail-row"><span>Expected Delivery</span><span style="color:var(--gm);">3–5 Working Days</span></div>
+  </div>
+
+  <div class="steps-next">
+    <div class="sn-card"><div class="sn-icon">📱</div><div class="sn-title">WhatsApp Confirm</div><div class="sn-sub">Within 30 mins</div></div>
+    <div class="sn-card"><div class="sn-icon">📦</div><div class="sn-title">Order Packed</div><div class="sn-sub">Within 24 hours</div></div>
+    <div class="sn-card"><div class="sn-icon">🚚</div><div class="sn-title">Shipped</div><div class="sn-sub">Tracking on WhatsApp</div></div>
+    <div class="sn-card"><div class="sn-icon">🏠</div><div class="sn-title">Delivered</div><div class="sn-sub">3–5 working days</div></div>
+  </div>
+
+  <div class="conf-btns">
+    <a href="track.html" class="btn-out">Track My Order</a>
+    <a href="index.html" class="btn-solid">Back to Home</a>
+  </div>
+</div>
+<footer>
+  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
+  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="track.html">Track Order</a><a href="contact.html">Contact</a></div>
+  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+</footer>
+<script src="shared.js"></script>
+<script>
+const PAYMETHODS={upi:'UPI Payment',card:'Debit / Credit Card',cod:'Cash on Delivery'};
+window.addEventListener('DOMContentLoaded',()=>{
+  const o=JSON.parse(localStorage.getItem('sd_last_order')||'{}');
+  if(o.id){document.getElementById('oid').textContent=o.id;document.getElementById('oname').textContent=o.name||'—';document.getElementById('ophone').textContent=o.phone||'—';document.getElementById('oaddr').textContent=o.address||'—';document.getElementById('opay').textContent=PAYMETHODS[o.payMethod]||o.payMethod||'—';document.getElementById('ototl').textContent='₹'+(parseInt(o.total)||0).toLocaleString();document.getElementById('odate').textContent=o.date||'—';}
+});
+</script>
+</body></html>
+

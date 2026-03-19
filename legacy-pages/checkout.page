@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Checkout — Sugar Down</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
+  <ul class="nm">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="cart.html">← Back to Cart</a></li>
+  </ul>
+</nav>
+
+<div class="overlay" id="overlay">
+  <div class="spinner"></div>
+  <h3>Placing Your Order...</h3>
+  <p>Please don't close this window</p>
+</div>
+
+<div class="wrap">
+  <div class="breadcrumb"><a href="index.html">Home</a> › <a href="cart.html">Cart</a> › Checkout</div>
+  <h1 class="pg-title">Checkout</h1>
+
+  <div class="steps-bar">
+    <div class="step done"><div class="step-num">✓</div><span>Cart</span></div>
+    <div class="step-line done"></div>
+    <div class="step active"><div class="step-num">2</div><span>Checkout</span></div>
+    <div class="step-line"></div>
+    <div class="step pending"><div class="step-num">3</div><span>Confirmation</span></div>
+  </div>
+
+  <div class="checkout-layout">
+    <div>
+      <!-- CONTACT INFO -->
+      <div class="csec">
+        <div class="csec-title"><span>👤</span> Contact Information</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" id="fname" placeholder="Ramesh" /></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" id="lname" placeholder="Sharma" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Mobile Number *</label><input type="tel" id="phone" placeholder="+91 98765 43210" /></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="email" placeholder="you@example.com" /></div>
+        </div>
+      </div>
+
+      <!-- DELIVERY ADDRESS -->
+      <div class="csec">
+        <div class="csec-title"><span>📍</span> Delivery Address</div>
+        <div class="form-group"><label>Flat / House No. / Building *</label><input type="text" id="addr1" placeholder="Flat 202, Green Residency" /></div>
+        <div class="form-group"><label>Street / Area / Locality *</label><input type="text" id="addr2" placeholder="Hazratganj, Near Civil Lines" /></div>
+        <div class="form-row">
+          <div class="form-group"><label>City *</label><input type="text" id="city" placeholder="Lucknow" /></div>
+          <div class="form-group"><label>State *</label>
+            <select id="state">
+              <option value="">Select State</option>
+              <option>Uttar Pradesh</option><option>Maharashtra</option><option>Delhi</option>
+              <option>Gujarat</option><option>Rajasthan</option><option>Bihar</option>
+              <option>Madhya Pradesh</option><option>Karnataka</option><option>Tamil Nadu</option>
+              <option>West Bengal</option><option>Punjab</option><option>Haryana</option>
+              <option>Andhra Pradesh</option><option>Telangana</option><option>Kerala</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>PIN Code *</label><input type="text" id="pin" placeholder="226001" maxlength="6" /></div>
+          <div class="form-group"><label>Landmark (optional)</label><input type="text" id="landmark" placeholder="Near Apollo Hospital" /></div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="csec">
+        <div class="csec-title"><span>💳</span> Payment Method</div>
+        <div class="pay-methods">
+          <div class="pay-option selected" onclick="selectPay(this,'upi')">
+            <div class="pay-radio"><div class="pay-radio-dot"></div></div>
+            <span class="pay-icon">📱</span>
+            <div class="pay-info"><div class="pay-name">UPI Payment</div><div class="pay-sub">GPay, PhonePe, Paytm, BHIM</div></div>
+            <span class="pay-badge">Instant</span>
+          </div>
+          <div class="pay-option" onclick="selectPay(this,'card')">
+            <div class="pay-radio"><div class="pay-radio-dot"></div></div>
+            <span class="pay-icon">💳</span>
+            <div class="pay-info"><div class="pay-name">Debit / Credit Card</div><div class="pay-sub">Visa, Mastercard, RuPay</div></div>
+          </div>
+          <div class="pay-option" onclick="selectPay(this,'cod')">
+            <div class="pay-radio"><div class="pay-radio-dot"></div></div>
+            <span class="pay-icon">💵</span>
+            <div class="pay-info"><div class="pay-name">Cash on Delivery</div><div class="pay-sub">Pay when your order arrives</div></div>
+            <span class="pay-badge">No Risk</span>
+          </div>
+        </div>
+
+        <!-- UPI DETAILS -->
+        <div class="pay-details show" id="pay-upi">
+          <div style="font-size:13px;font-weight:600;margin-bottom:10px;">Enter your UPI ID</div>
+          <div class="upi-input">
+            <input type="text" placeholder="yourname@upi or mobile@paytm" id="upi-id" />
+            <button class="upi-verify" onclick="verifyUPI()">Verify</button>
+          </div>
+          <div id="upi-msg" style="font-size:12px;margin-top:8px;min-height:16px;"></div>
+          <div style="margin-top:14px;font-size:12px;color:var(--gray-l);">Or pay using QR code after placing order — our team will send it on WhatsApp.</div>
+        </div>
+
+        <!-- CARD DETAILS -->
+        <div class="pay-details" id="pay-card">
+          <div class="form-group"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="card-num" oninput="formatCard(this)" /></div>
+          <div class="card-grid">
+            <div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7" /></div>
+            <div class="form-group"><label>CVV</label><input type="password" placeholder="•••" maxlength="4" /></div>
+          </div>
+          <div class="form-group"><label>Name on Card</label><input type="text" placeholder="As printed on card" /></div>
+        </div>
+
+        <!-- COD DETAILS -->
+        <div class="pay-details" id="pay-cod">
+          <div class="cod-info">✅ <strong>Cash on Delivery available.</strong><br><br>Keep the exact amount ready when our delivery partner arrives. Our team will confirm your order on WhatsApp before dispatch.<br><br>Delivery in 3–5 working days. No advance payment needed.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="summary">
+        <h3>Order Summary</h3>
+        <div id="s-items"><!-- JS --></div>
+        <div class="s-divider"></div>
+        <div class="s-row"><span>Subtotal</span><span id="s-sub">₹0</span></div>
+        <div class="s-row"><span>Discount</span><span id="s-disc" style="color:var(--gm);">-₹0</span></div>
+        <div class="s-row"><span>GST (5%)</span><span id="s-gst">₹0</span></div>
+        <div class="s-row"><span>Shipping</span><span style="color:var(--gm);">FREE</span></div>
+        <div class="s-total"><span>Total</span><span id="s-total">₹0</span></div>
+        <button class="place-btn" onclick="placeOrder()">🛒 Place Order Now</button>
+        <div class="s-secure">🔒 Secure & encrypted checkout</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
+  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="contact.html">Contact</a></div>
+  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const THUMBS={kwath:'background:linear-gradient(135deg,#1a5c30,#2e7d4f)',daycaps:'background:linear-gradient(135deg,#0d4a36,#1a8c5e)',sleepcaps:'background:linear-gradient(135deg,#1A3A5C,#2a5a8c)',corekit:'background:linear-gradient(135deg,#1B4D2E,#0d3320)',balkit:'background:linear-gradient(135deg,#0d4a36,#1a8c5e)'};
+let selectedPay = 'upi';
+
+function selectPay(el, type) {
+  document.querySelectorAll('.pay-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPay = type;
+  document.querySelectorAll('.pay-details').forEach(d=>d.classList.remove('show'));
+  document.getElementById('pay-'+type).classList.add('show');
+}
+
+function verifyUPI() {
+  const v = document.getElementById('upi-id').value;
+  const msg = document.getElementById('upi-msg');
+  if (v.includes('@')) { msg.style.color='var(--gm)'; msg.textContent='✓ UPI ID looks valid'; }
+  else { msg.style.color='var(--red)'; msg.textContent='✗ Invalid UPI ID format'; }
+}
+
+function formatCard(el) {
+  let v = el.value.replace(/\s/g,'').replace(/\D/g,'');
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+
+function renderSummary() {
+  const cart = getCart();
+  let html = '';
+  const sub = cart.reduce((s,i)=>{ const p=PRODUCTS[i.id]; if(!p)return s; html+=`<div class="s-item"><div class="s-thumb" style="${THUMBS[i.id]||''}">${p.img}</div><div class="s-info"><div class="s-name">${p.name}</div><div class="s-qty">Qty: ${i.qty}</div></div><div class="s-price">₹${(p.price*i.qty).toLocaleString()}</div></div>`; return s+p.price*i.qty; },0);
+  document.getElementById('s-items').innerHTML = html;
+  const disc = Math.round(sub*0.05);
+  const after = sub-disc;
+  const gst = Math.round(after*0.05);
+  const total = after+gst;
+  document.getElementById('s-sub').textContent='₹'+sub.toLocaleString();
+  document.getElementById('s-disc').textContent='-₹'+disc.toLocaleString();
+  document.getElementById('s-gst').textContent='₹'+gst.toLocaleString();
+  document.getElementById('s-total').textContent='₹'+total.toLocaleString();
+  localStorage.setItem('sd_order_total',total);
+}
+
+function validateForm() {
+  const req = [{id:'fname',label:'First Name'},{id:'lname',label:'Last Name'},{id:'phone',label:'Mobile Number'},{id:'addr1',label:'Address'},{id:'addr2',label:'Street/Area'},{id:'city',label:'City'},{id:'state',label:'State'},{id:'pin',label:'PIN Code'}];
+  for (const f of req) {
+    const v = document.getElementById(f.id)?.value?.trim();
+    if (!v) { alert('Please fill in: '+f.label); document.getElementById(f.id)?.focus(); return false; }
+  }
+  const pin = document.getElementById('pin').value;
+  if (!/^\d{6}$/.test(pin)) { alert('Please enter a valid 6-digit PIN code'); return false; }
+  const phone = document.getElementById('phone').value;
+  if (!/^\+?[\d\s-]{10,}$/.test(phone)) { alert('Please enter a valid mobile number'); return false; }
+  return true;
+}
+
+function placeOrder() {
+  if (!validateForm()) return;
+  const cart = getCart();
+  if (cart.length === 0) { alert('Your cart is empty!'); return; }
+
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('show');
+
+  // Save order details
+  const orderId = generateOrderId();
+  const orderData = {
+    id: orderId,
+    items: cart,
+    name: document.getElementById('fname').value + ' ' + document.getElementById('lname').value,
+    phone: document.getElementById('phone').value,
+    address: [document.getElementById('addr1').value, document.getElementById('addr2').value, document.getElementById('city').value, document.getElementById('state').value, document.getElementById('pin').value].join(', '),
+    payMethod: selectedPay,
+    total: localStorage.getItem('sd_order_total'),
+    date: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}),
+    status: 'confirmed'
+  };
+  localStorage.setItem('sd_last_order', JSON.stringify(orderData));
+  localStorage.setItem('sd_order_'+orderId, JSON.stringify(orderData));
+
+  setTimeout(() => {
+    saveCart([]);
+    window.location.href = 'confirmation.html';
+  }, 2200);
+}
+
+renderSummary();
+</script>
+</body></html>
+

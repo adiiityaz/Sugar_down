@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cart — Sugar Down</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
+  <ul class="nm">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="cart.html" style="color:var(--gold);" class="cart-link">🛒 Cart <span class="cart-badge" id="cb">0</span></a></li>
+  </ul>
+  <a href="checkout.html" class="nc">Checkout</a>
+</nav>
+
+<div class="wrap">
+  <div class="pg-header">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="products.html">Products</a> › Cart</div>
+    <h1 class="pg-title">Your Cart</h1>
+  </div>
+
+  <div class="cart-layout">
+    <div>
+      <div class="cart-items" id="cart-items-container">
+        <!-- Filled by JS -->
+      </div>
+      <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;">
+        <a href="products.html" style="font-size:13px;color:var(--gm);text-decoration:none;">← Continue Shopping</a>
+        <button onclick="clearCart()" style="font-size:12px;color:var(--red);background:none;border:none;cursor:pointer;">Clear Cart</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="summary">
+        <h3>Order Summary</h3>
+        <div class="sum-row"><span>Subtotal</span><span id="sum-sub">₹0</span></div>
+        <div class="sum-row"><span>Discount (5%)</span><span id="sum-disc" style="color:var(--gm);">-₹0</span></div>
+        <div class="sum-row"><span>GST (5%)</span><span id="sum-gst">₹0</span></div>
+        <div class="sum-row"><span>Shipping</span><span style="color:var(--gm);">FREE 🎉</span></div>
+        <div class="sum-divider"></div>
+        <div class="sum-total"><span>Total</span><span id="sum-total">₹0</span></div>
+        <div class="sum-total-sub" id="sum-perday"></div>
+        <div class="coupon-row">
+          <input class="coupon-input" id="coupon-in" placeholder="Have a coupon?" />
+          <button class="coupon-btn" onclick="applyCoupon()">Apply</button>
+        </div>
+        <div class="coupon-msg" id="coupon-msg"></div>
+        <a href="checkout.html" class="checkout-btn" id="checkout-btn">Proceed to Checkout →</a>
+        <div class="sum-trust">
+          <div class="st-item"><span>🔒</span><span>Secure & encrypted checkout</span></div>
+          <div class="st-item"><span>🚚</span><span>Free shipping across India</span></div>
+          <div class="st-item"><span>📦</span><span>Delivered in 3–5 working days</span></div>
+        </div>
+      </div>
+
+      <div class="also-like" id="also-like" style="display:none;">
+        <h4>You might also like</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
+  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="track.html">Track Order</a></div>
+  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const THUMBS = {kwath:'t1',daycaps:'t2',sleepcaps:'t3',corekit:'t4',balkit:'t5'};
+const COUPONS = {SUGAR10:{type:'pct',val:10,label:'10% off applied!'},LUCKY5:{type:'pct',val:5,label:'5% off applied!'},FIRST15:{type:'pct',val:15,label:'15% off — Welcome!'}};
+let extraDiscount = 0;
+
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById('cart-items-container');
+  if (cart.length === 0) {
+    container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div><h3>Your cart is empty</h3><p>Add some products to get started.</p><a href="products.html">Browse Products</a></div>`;
+    document.getElementById('checkout-btn').style.opacity='0.4';
+    document.getElementById('checkout-btn').style.pointerEvents='none';
+    updateSummary();
+    return;
+  }
+  let html = `<div class="ci-header"><h3>Cart Items</h3><span class="ci-count">${cart.length} item${cart.length>1?'s':''}</span></div>`;
+  cart.forEach(item => {
+    const p = PRODUCTS[item.id];
+    if (!p) return;
+    const total = p.price * item.qty;
+    html += `<div class="ci-item" id="ci-${item.id}">
+      <div class="ci-thumb ${THUMBS[item.id]||'t4'}">${p.img}</div>
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-sub">${p.sub}</div>
+        <span class="ci-tag">${p.tag}</span>
+      </div>
+      <div class="ci-right">
+        <div class="ci-price">₹${total.toLocaleString()}</div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+          <span class="qty-val" id="qty-${item.id}">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+        </div>
+        <button class="ci-remove" onclick="removeItem('${item.id}')">Remove</button>
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html;
+  updateSummary();
+  updateCartBadge();
+}
+
+function changeQty(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + delta);
+  saveCart(cart);
+  renderCart();
+}
+
+function removeItem(id) {
+  let cart = getCart().filter(i => i.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+
+function clearCart() {
+  if (confirm('Clear all items?')) { saveCart([]); renderCart(); }
+}
+
+function updateSummary() {
+  const cart = getCart();
+  const sub = cart.reduce((s,i)=>{ const p=PRODUCTS[i.id]; return s+(p?p.price*i.qty:0); },0);
+  const disc5 = Math.round(sub * 0.05);
+  const afterDisc = sub - disc5 - extraDiscount;
+  const gst = Math.round(afterDisc * 0.05);
+  const total = afterDisc + gst;
+  document.getElementById('sum-sub').textContent = '₹'+sub.toLocaleString();
+  document.getElementById('sum-disc').textContent = '-₹'+(disc5+extraDiscount).toLocaleString();
+  document.getElementById('sum-gst').textContent = '₹'+gst.toLocaleString();
+  document.getElementById('sum-total').textContent = '₹'+total.toLocaleString();
+  const days = Math.round(total/30);
+  document.getElementById('sum-perday').textContent = sub>0?'Just ₹'+days+'/day':'';
+  localStorage.setItem('sd_order_total', total);
+}
+
+function applyCoupon() {
+  const code = document.getElementById('coupon-in').value.trim().toUpperCase();
+  const msg = document.getElementById('coupon-msg');
+  if (COUPONS[code]) {
+    const c = COUPONS[code];
+    const sub = getCart().reduce((s,i)=>{ const p=PRODUCTS[i.id]; return s+(p?p.price*i.qty:0); },0);
+    extraDiscount = c.type==='pct' ? Math.round(sub*c.val/100) : c.val;
+    msg.className='coupon-msg ok'; msg.textContent='✓ '+c.label;
+    updateSummary();
+  } else {
+    msg.className='coupon-msg err'; msg.textContent='✗ Invalid coupon code';
+    extraDiscount=0; updateSummary();
+  }
+}
+
+renderCart();
+</script>
+</body></html>
+
