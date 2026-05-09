@@ -32,5 +32,13 @@ footer{background:#050d08;padding:40px 6% 24px;display:flex;justify-content:spac
 .wa-banner-text h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
 .wa-banner-text p{font-size:12px;color:rgba(255,255,255,.7);}
 .wa-btn{background:#fff;color:#075E54;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;margin-left:auto;flex-shrink:0;}
-@media(max-width:600px){.steps-next{grid-template-columns:1fr 1fr;}.wa-banner{flex-wrap:wrap;}.wa-btn{width:100%;text-align:center;}}
+@media(max-width:600px){
+  .wrap { padding: 80px 5% 40px; }
+  .conf-title { font-size: 28px; }
+  .order-box { padding: 20px; }
+  .steps-next { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .wa-banner { flex-direction: column; text-align: center; }
+  .wa-btn { margin-left: 0; width: 100%; text-align: center; }
+  .nm { display: none; }
+}
 

@@ -5,29 +5,286 @@
 <title>Products — Sugar Down</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 6%;
+      background: rgba(27,77,46,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,151,42,0.3);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .nav-logo { display: flex; flex-direction: column; text-decoration: none; }
+    .nav-logo span:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 900;
+      color: #fff; letter-spacing: 2px;
+    }
+    .nav-logo span:last-child { font-size: 9px; color: #C8972A; letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; font-weight: 700; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #C8972A; }
+    .nav-cta {
+      background: #C8972A; color: #0F1A13;
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,42,0.4); }
+
+    .premium-footer {
+      background: #1B4D2E;
+      padding: 100px 0 60px;
+      color: #fff !important;
+      font-family: 'DM Sans', sans-serif;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-top {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1.2fr;
+      gap: 80px;
+      margin-bottom: 80px;
+    }
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 28px;
+    }
+    .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: #C8972A;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+    .footer-tagline {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+    .footer-mission {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 400px;
+    }
+    .col-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .col-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: #C8972A;
+    }
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-link-list a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+    .footer-link-list a:hover {
+      color: #C8972A;
+      padding-left: 8px;
+    }
+    .support-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .support-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      transition: all 0.3s;
+    }
+    .support-link:hover {
+      color: #C8972A;
+    }
+    .footer-quick-actions {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .action-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .action-btns {
+      display: flex;
+      gap: 12px;
+    }
+    .action-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .action-btn:hover {
+      background: #C8972A;
+      color: #1B4D2E;
+      border-color: #C8972A;
+      transform: translateY(-2px);
+    }
+    .footer-divider {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto 50px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      background-clip: content-box;
+    }
+    .footer-bottom {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: #fff;
+    }
+    .social-icon:hover {
+      background: #C8972A;
+      border-color: #C8972A;
+      color: #1B4D2E;
+      transform: scale(1.1) rotate(5deg);
+    }
+    .footer-copyright {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 40px;
+    }
+    .footer-bottom-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      transition: color 0.3s;
+    }
+    .footer-bottom-links a:hover {
+      color: #C8972A;
+    }
+    @media (max-width: 900px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-bottom-left {
+        align-items: center;
+      }
+      .footer-bottom-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px 30px;
+      }
+    }
+</style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
-  <ul class="nm">
+  <div class="nav-logo">
+    <span>SUGAR DOWN</span>
+    <span>BY LUCKY HEART</span>
+  </div>
+  <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="products.html" style="color:var(--gold);">Products</a></li>
+    <li><a href="products.html" style="color:#C8972A;">Products</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="cart.html" class="cart-link">🛒 Cart <span class="cart-badge" id="cb1">0</span></a></li>
+    <li><a href="cart.html">Cart <span class="cart-badge" id="cb1">0</span></a></li>
   </ul>
-  <a href="cart.html" class="nc">View Cart</a>
+  <a href="cart.html" class="nav-cta">View Cart</a>
 </nav>
 
 <div class="hero">
   <h1>Our Products</h1>
-  <p>Choose your kit or buy individual products. Every order includes free diet support & 24×7 WhatsApp care.</p>
-  <div class="hbc">
-    <span>🌿 100% Ayurvedic</span>
-    <span>🚚 Free Shipping</span>
-    <span>💬 24×7 Support</span>
-    <span>🥗 Free Diet Plan</span>
-  </div>
+  <p>Choose your kit or buy individual products. Every order includes 24×7 WhatsApp care.</p>
 </div>
 
 <div class="wrap">
@@ -41,9 +298,10 @@
     <div class="kit-card">
       <div class="kit-header">
         <span class="kit-icon">📦</span>
-        <div class="kit-name">Core Kit</div>
+        <div class="logo-main">SUGAR DOWN</div>
+        <div class="logo-sub">BY LUCKY HEART</div>
         <div class="kit-sub">Morning + Daytime Care</div>
-        <div class="kit-price-row"><span class="kit-price">₹1,310</span><span class="kit-gst">+ 5% GST</span></div>
+        <div class="kit-price-row"><span class="kit-price">₹1,310</span></div>
         <div class="kit-perday">Just ₹44/day · 5% Discount Applied</div>
       </div>
       <div class="kit-body">
@@ -53,7 +311,6 @@
           <div class="kit-item"><span class="check">✓</span> Diabetes Care Capsules (60)</div>
           <div class="kit-item"><span class="check">✓</span> 24×7 WhatsApp Support</div>
           <div class="kit-item"><span class="check">✓</span> Daily Follow-ups</div>
-          <div class="kit-item"><span class="check">✓</span> Free Diet Plan by Dietitian</div>
           <div class="kit-item"><span class="cross">✗</span> <span style="opacity:.35;">Sleep Care Capsules</span></div>
         </div>
         <div class="kit-perks"><span class="kit-perk">5% Off</span><span class="kit-perk">Free Shipping</span></div>
@@ -67,7 +324,7 @@
         <span class="kit-icon">⭐</span>
         <div class="kit-name">Balanced Kit</div>
         <div class="kit-sub">Morning + Daytime + Night Care</div>
-        <div class="kit-price-row"><span class="kit-price">₹1,670</span><span class="kit-gst">+ 5% GST</span></div>
+        <div class="kit-price-row"><span class="kit-price">₹1,670</span></div>
         <div class="kit-perday">Just ₹55/day · Best Value · 5% Discount</div>
       </div>
       <div class="kit-body">
@@ -78,8 +335,6 @@
           <div class="kit-item"><span class="check">✓</span> Sleep Care Capsules (30)</div>
           <div class="kit-item"><span class="check">✓</span> 24×7 WhatsApp Support</div>
           <div class="kit-item"><span class="check">✓</span> Daily Follow-ups</div>
-          <div class="kit-item"><span class="check">✓</span> Free Diet Plan by Dietitian</div>
-          <div class="kit-item"><span class="check">✓</span> Weekly Yoga Sessions</div>
         </div>
         <div class="kit-perks"><span class="kit-perk">5% Off</span><span class="kit-perk">Free Shipping</span><span class="kit-perk">Best Value</span></div>
         <button class="kit-btn solid" onclick="addToCart('balkit');this.textContent='✓ Added to Cart';this.style.background='var(--ga)';">Add Balanced Kit to Cart</button>
@@ -102,7 +357,7 @@
           <li>Activates pancreas naturally</li>
         </ul>
         <div class="prod-footer">
-          <div class="prod-price">₹565 <span>+ GST</span></div>
+          <div class="prod-price">₹565</div>
           <button class="add-btn" onclick="addToCart('kwath');this.textContent='✓ Added';this.classList.add('added');">Add to Cart</button>
         </div>
       </div>
@@ -118,7 +373,7 @@
           <li>Reduces sugar cravings</li>
         </ul>
         <div class="prod-footer">
-          <div class="prod-price">₹745 <span>+ GST</span></div>
+          <div class="prod-price">₹745</div>
           <button class="add-btn" onclick="addToCart('daycaps');this.textContent='✓ Added';this.classList.add('added');">Add to Cart</button>
         </div>
       </div>
@@ -134,7 +389,7 @@
           <li>Better sleep = better sugar</li>
         </ul>
         <div class="prod-footer">
-          <div class="prod-price">₹360 <span>+ GST</span></div>
+          <div class="prod-price">₹360</div>
           <button class="add-btn" onclick="addToCart('sleepcaps');this.textContent='✓ Added';this.classList.add('added');">Add to Cart</button>
         </div>
       </div>
@@ -153,10 +408,69 @@
   </div>
 </div>
 
-<footer>
-  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
-  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="track.html">Track Order</a></div>
-  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+<footer class="premium-footer">
+  <div class="footer-top">
+    <div class="footer-col about">
+      <div class="footer-logo">
+        <span class="logo-main">SUGAR DOWN</span>
+        <span class="logo-sub">BY LUCKY HEART</span>
+      </div>
+      <p class="footer-tagline">
+        India's most focused Ayurvedic diabetes care system. Built for results, backed by support, and trusted by thousands.
+      </p>
+      <p class="footer-mission">
+        Clear guidance, responsible care, and dependable follow-ups for your long-term health journey.
+      </p>
+    </div>
+    <div class="footer-col links">
+      <h4 class="col-title">LEGAL</h4>
+      <ul class="footer-link-list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="refund.html">Refund & Cancellation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col support">
+      <h4 class="col-title">SUPPORT</h4>
+      <p class="support-text">Need help? We're online 24/7</p>
+      <a href="mailto:luckyheartTraditional Medicine@gmail.com" class="support-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        luckyheartTraditional Medicine@gmail.com
+      </a>
+      <a href="tel:+918650777799" class="support-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.81 12.81 0 0 0 .62 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.62A2 2 0 0 1 22 16.92z"></path></svg>
+        +91 8650777799
+      </a>
+      <div class="footer-quick-actions">
+        <span class="action-label">QUICK ACTIONS</span>
+        <div class="action-btns">
+          <a href="tel:+918650777799" class="action-btn">Call</a>
+          <a href="https://wa.me/918650777799" class="action-btn">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_sugardown?igsh=MWN3cXIvNDI6anl6dg==" class="social-icon" title="Instagram" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1D5GjEUUbF/" class="social-icon" title="Facebook" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+      </div>
+      <div class="footer-copyright">&copy; 2026 LUCKY HEART. ALL RIGHTS RESERVED.</div>
+    </div>
+    <div class="footer-bottom-links">
+      <a href="products.html">PRODUCTS</a>
+      <a href="contact.html">SUPPORT</a>
+      <a href="#faq">FAQ</a>
+      <a href="sitemap.xml">SITEMAP</a>
+    </div>
+  </div>
 </footer>
 <script src="shared.js"></script>
 <script>document.addEventListener('DOMContentLoaded',()=>{const c=getCart();const t=c.reduce((s,i)=>s+i.qty,0);const b=document.getElementById('cb1');if(b){b.textContent=t;b.style.display=t>0?'flex':'none';}});</script>

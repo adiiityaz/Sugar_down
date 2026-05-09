@@ -8,9 +8,17 @@
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nl"><span>SUGAR DOWN</span><span>BY LUCKY HEART AYURVEDA</span></a>
-  <ul class="nm"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="act">Contact</a></li></ul>
-  <a href="products.html" class="nc">Shop Now</a>
+  <div class="nav-logo">
+    <span>SUGAR DOWN</span>
+    <span>BY LUCKY HEART</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" style="color:#C8972A;">Contact</a></li>
+  </ul>
+  <a href="products.html" class="nav-cta">Order Now</a>
 </nav>
 
 <div class="hero">
@@ -21,84 +29,376 @@
 <div class="wrap">
   <div class="wa-banner">
     <div class="wa-banner-left"><h3>Fastest Response on WhatsApp</h3><p>Average reply time: under 5 minutes. Available 24×7.</p></div>
-    <a href="https://wa.me/91XXXXXXXXXX?text=Hello!%20I%20want%20to%20know%20more%20about%20Sugar%20Down" class="wa-btn">💬 Chat on WhatsApp Now</a>
+    <a href="https://wa.me/918650777799?text=Hello!%20I%20want%20to%20know%20more%20about%20Sugar%20Down" class="wa-btn" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Chat on WhatsApp Now
+    </a>
   </div>
 
-  <div class="contact-layout">
-    <div>
-      <div class="channels">
-        <a href="https://wa.me/91XXXXXXXXXX" class="channel-card">
-          <div class="ch-icon ch-wa">💬</div>
-          <div><div class="ch-label">Fastest</div><div class="ch-name">WhatsApp Support</div><div class="ch-val">+91-XXXXXXXXXX</div><div class="ch-sub">24×7 · Usually replies in under 5 mins</div></div>
-        </a>
-        <a href="tel:+91XXXXXXXXXX" class="channel-card">
-          <div class="ch-icon ch-ph">📞</div>
-          <div><div class="ch-label">Call Us</div><div class="ch-name">Phone Support</div><div class="ch-val">+91-XXXXXXXXXX</div><div class="ch-sub">Mon–Sat · 9:00 AM – 8:00 PM</div></div>
-        </a>
-        <a href="mailto:support@sugardown.in" class="channel-card">
-          <div class="ch-icon ch-em">✉️</div>
-          <div><div class="ch-label">Email Us</div><div class="ch-name">Email Support</div><div class="ch-val">support@sugardown.in</div><div class="ch-sub">Reply within 4–6 business hours</div></div>
-        </a>
-      </div>
-      <div class="hours-card">
-        <h4>Support Hours</h4>
-        <div class="hour-row"><span>WhatsApp</span><span>24×7 Always Open</span></div>
-        <div class="hour-row"><span>Phone Calls</span><span>9 AM – 8 PM</span></div>
-        <div class="hour-row"><span>Email</span><span>Mon – Sat</span></div>
-        <div class="hour-row"><span>Follow-up Calls</span><span>Daily for all customers</span></div>
-      </div>
+  <div class="channels-grid">
+    <a href="https://wa.me/918650777799" class="channel-card">
+      <div class="ch-icon ch-wa"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></div>
+      <div><div class="ch-label">Fastest</div><div class="ch-name">WhatsApp Support</div><div class="ch-val">+91 8650777799</div><div class="ch-sub">24×7 · Usually replies in under 5 mins</div></div>
+    </a>
+    <a href="tel:+918650777799" class="channel-card">
+      <div class="ch-icon ch-ph">📞</div>
+      <div><div class="ch-label">Call Us</div><div class="ch-name">Phone Support</div><div class="ch-val">+91 8650777799</div><div class="ch-sub">24×7 · Always Open</div></div>
+    </a>
+    <a href="mailto:luckyheartTraditional Medicine@gmail.com" class="channel-card">
+      <div class="ch-icon ch-em">✉️</div>
+      <div><div class="ch-label">Email Us</div><div class="ch-name">Email Support</div><div class="ch-val">luckyheartTraditional Medicine@gmail.com</div><div class="ch-sub">24×7 · Replies in under 4 hours</div></div>
+    </a>
+  </div>
 
-      <div class="faq-mini" style="margin-top:28px;">
-        <h3>Quick Answers</h3>
-        <div class="fitem"><div class="fq">How do I order? <span>+</span></div><div class="fa">Simply WhatsApp us or click "Order Now" on the website. Share your address, choose your kit, and we'll confirm within 30 minutes.</div></div>
-        <div class="fitem"><div class="fq">When will I get my order? <span>+</span></div><div class="fa">Orders are shipped within 24 hours and delivered in 3–5 working days across India. You'll receive tracking updates on WhatsApp.</div></div>
-        <div class="fitem"><div class="fq">Is there a return policy? <span>+</span></div><div class="fa">If you receive a damaged or wrong product, contact us within 48 hours and we will replace it immediately. WhatsApp us a photo of the product.</div></div>
-      </div>
+  <div class="support-info-grid">
+    <div class="hours-card">
+      <h4>24/7 Support Channels</h4>
+      <div class="hour-row"><span>WhatsApp Support</span><span>24×7 Always Open</span></div>
+      <div class="hour-row"><span>Phone Support</span><span>24×7 Always Open</span></div>
+      <div class="hour-row"><span>Email Support</span><span>24×7 Always Open</span></div>
+      <div class="hour-row"><span>Follow-up Calls</span><span>Daily for all customers</span></div>
     </div>
 
-    <div class="form-card">
-      <h3>Send Us a Message</h3>
-      <p>Fill this form and we'll reply on WhatsApp within 30 minutes.</p>
-      <div class="form-row">
-        <div class="form-group"><label>Your Name *</label><input type="text" id="cf-name" placeholder="Ramesh Sharma" /></div>
-        <div class="form-group"><label>Mobile Number *</label><input type="tel" id="cf-phone" placeholder="+91 98765 43210" /></div>
-      </div>
-      <div class="form-group"><label>Email</label><input type="email" id="cf-email" placeholder="you@email.com" /></div>
-      <div class="form-group"><label>Subject *</label>
-        <select id="cf-subject">
-          <option value="">Select a topic</option>
-          <option>Want to know more about Sugar Down</option>
-          <option>Question about ingredients</option>
-          <option>Order related query</option>
-          <option>Delivery / tracking issue</option>
-          <option>Diet plan support</option>
-          <option>Product feedback</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Message *</label><textarea id="cf-message" placeholder="Tell us how we can help you..."></textarea></div>
-      <button class="submit-btn" onclick="submitForm()">Send Message →</button>
-      <div class="success-msg" id="cf-success">✓ Message received! We'll reply on WhatsApp within 30 minutes. 🙏</div>
+    <div class="faq-mini">
+      <h3>Quick Answers</h3>
+      <div class="fitem"><div class="fq">How do I order? <span>+</span></div><div class="fa">Simply WhatsApp us or click "Order Now" on the website. Share your address, choose your kit, and we'll confirm within 30 minutes.</div></div>
+      <div class="fitem"><div class="fq">When will I get my order? <span>+</span></div><div class="fa">Orders are shipped within 24 hours and delivered in 3–5 working days across India. You'll receive tracking updates on WhatsApp.</div></div>
+      <div class="fitem"><div class="fq">Is there a return policy? <span>+</span></div><div class="fa">If you receive a damaged or wrong product, contact us within 48 hours and we will replace it immediately. WhatsApp us a photo of the product.</div></div>
     </div>
+  </div>
+
+
   </div>
 </div>
 
-<footer>
-  <div class="fbrand"><span>SUGAR DOWN</span><p>By Lucky Heart Ayurveda · Complete Diabetes Care</p></div>
-  <div class="flinks"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="track.html">Track Order</a></div>
-  <div class="fcopy">© 2025 Lucky Heart Ayurveda. All rights reserved.</div>
+<footer class="premium-footer">
+  <style>
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 6%;
+      background: rgba(27,77,46,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,151,42,0.3);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .nav-logo { display: flex; flex-direction: column; text-decoration: none; }
+    .nav-logo span:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 900;
+      color: #fff; letter-spacing: 2px;
+    }
+    .nav-logo span:last-child { font-size: 9px; color: #C8972A; letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; font-weight: 700; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #C8972A; }
+    .nav-cta {
+      background: #C8972A; color: #0F1A13;
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,42,0.4); }
+
+    .premium-footer {
+      background: #1B4D2E;
+      padding: 100px 0 60px;
+      color: #fff !important;
+      font-family: 'DM Sans', sans-serif;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 80px;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-top {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1.2fr;
+      gap: 80px;
+      margin-bottom: 80px;
+    }
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 28px;
+    }
+    .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: #C8972A;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+    .footer-tagline {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 400px;
+    }
+    .footer-mission {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 400px;
+    }
+    .col-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .col-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: #C8972A;
+    }
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-link-list a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+    .footer-link-list a:hover {
+      color: #C8972A;
+      padding-left: 8px;
+    }
+    .support-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .support-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      transition: all 0.3s;
+    }
+    .support-link:hover {
+      color: #C8972A;
+    }
+    .footer-quick-actions {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .action-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .action-btns {
+      display: flex;
+      gap: 12px;
+    }
+    .action-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .action-btn:hover {
+      background: #C8972A;
+      color: #1B4D2E;
+      border-color: #C8972A;
+      transform: translateY(-2px);
+    }
+    .footer-divider {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto 50px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      background-clip: content-box;
+    }
+    .footer-bottom {
+      width: 100%;
+      padding: 0 6%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: #fff;
+    }
+    .social-icon:hover {
+      background: #C8972A;
+      border-color: #C8972A;
+      color: #1B4D2E;
+      transform: scale(1.1) rotate(5deg);
+    }
+    .footer-copyright {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 40px;
+    }
+    .footer-bottom-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      transition: color 0.3s;
+    }
+    .footer-bottom-links a:hover {
+      color: #C8972A;
+    }
+    @media (max-width: 900px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-bottom-left {
+        align-items: center;
+      }
+      .footer-bottom-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px 30px;
+      }
+    }
+  </style>
+  <div class="footer-top">
+    <div class="footer-col about">
+      <div class="footer-logo">
+        <div class="logo-main">SUGAR DOWN</div>
+        <div class="logo-sub">BY LUCKY HEART</div>
+      </div>
+      <p class="footer-tagline">
+        India's most focused Ayurvedic diabetes care system. Built for results, backed by support, and trusted by thousands.
+      </p>
+      <p class="footer-mission">
+        Clear guidance, responsible care, and dependable follow-ups for your long-term health journey.
+      </p>
+    </div>
+    <div class="footer-col links">
+      <h4 class="col-title">LEGAL</h4>
+      <ul class="footer-link-list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="refund.html">Refund & Cancellation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col support">
+      <h4 class="col-title">SUPPORT</h4>
+      <p class="support-text">Need help? We're online 24/7</p>
+      <a href="mailto:luckyheartTraditional Medicine@gmail.com" class="support-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        luckyheartTraditional Medicine@gmail.com
+      </a>
+      <a href="tel:+918650777799" class="support-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.81 12.81 0 0 0 .62 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.62A2 2 0 0 1 22 16.92z"></path></svg>
+        +91 8650777799
+      </a>
+      <div class="footer-quick-actions">
+        <span class="action-label">QUICK ACTIONS</span>
+        <div class="action-btns">
+          <a href="tel:+918650777799" class="action-btn">Call</a>
+          <a href="https://wa.me/918650777799" class="action-btn">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_sugardown?igsh=MWN3cXIvNDI6anl6dg==" class="social-icon" title="Instagram" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1D5GjEUUbF/" class="social-icon" title="Facebook" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+      </div>
+      <div class="footer-copyright">
+        © 2026 LUCKY HEART. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+    <div class="footer-bottom-links">
+      <a href="products.html">PRODUCTS</a>
+      <a href="contact.html">SUPPORT</a>
+      <a href="#faq">FAQ</a>
+      <a href="sitemap.xml">SITEMAP</a>
+    </div>
+  </div>
 </footer>
 <script>
-function submitForm(){
-  const n=document.getElementById('cf-name').value.trim();
-  const p=document.getElementById('cf-phone').value.trim();
-  const s=document.getElementById('cf-subject').value;
-  const m=document.getElementById('cf-message').value.trim();
-  if(!n||!p||!s||!m){alert('Please fill all required fields.');return;}
-  document.getElementById('cf-success').style.display='block';
-  document.querySelector('.submit-btn').textContent='✓ Sent!';
-  document.querySelector('.submit-btn').style.background='var(--ga)';
-}
+
 document.querySelectorAll('.fq').forEach(q=>{q.addEventListener('click',()=>{const i=q.parentElement;const w=i.classList.contains('open');document.querySelectorAll('.fitem').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open');});});
 </script>
 </body></html>

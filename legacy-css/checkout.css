@@ -83,5 +83,21 @@ footer{background:#050d08;padding:40px 6% 24px;display:flex;justify-content:spac
 .overlay h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff;}
 .overlay p{font-size:14px;color:rgba(255,255,255,.6);}
 
-@media(max-width:900px){.checkout-layout{grid-template-columns:1fr;}.summary{position:static;}.form-row{grid-template-columns:1fr;}}
+@media(max-width:900px){
+  .wrap { padding: 80px 5% 40px; }
+  .checkout-layout { grid-template-columns: 1fr; gap: 24px; }
+  .summary { position: static; margin-top: 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .steps-bar { overflow-x: auto; padding-bottom: 10px; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  .step { flex-shrink: 0; }
+  .nm { display: none; }
+}
+
+@media(max-width:480px) {
+  .pg-title { font-size: 26px; }
+  .csec { padding: 16px; }
+  .pay-option { padding: 12px; }
+  .pay-name { font-size: 13px; }
+  .place-btn { font-size: 14px; }
+}
 
