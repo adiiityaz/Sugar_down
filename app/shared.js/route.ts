@@ -3,7 +3,7 @@ import path from "node:path";
 
 export async function GET() {
   const js = await readFile(
-    path.join(/* turbopackIgnore: true */ process.cwd(), "shared.js"),
+    path.join(/* turbopackIgnore: true */ process.cwd(), "public", "shared.js"),
     "utf8"
   );
   return new Response(js, {
