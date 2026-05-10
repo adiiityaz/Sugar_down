@@ -13,7 +13,11 @@
   };
 
   function getCart() {
-    try { return JSON.parse(localStorage.getItem('sd_cart') || '[]'); } catch(e) { return []; }
+    try {
+      return JSON.parse(localStorage.getItem('sd_cart') || '[]');
+    } catch {
+      return [];
+    }
   }
   function saveCart(cart) { localStorage.setItem('sd_cart', JSON.stringify(cart)); }
 
